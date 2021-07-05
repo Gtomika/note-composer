@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Note Composer</string>
+    <string name="new_note">New note</string>
+    <string name="no_notes_added">No notes added</string>
+    <string name="title">Title</string>
+    <string name="title_default">New note</string>
+    <string name="text">Text</string>
+    <string name="text_default">New note text…</string>
+    <string name="important">Important note</string>
+    <string name="delete">Delete</string>
+    <string name="note_added">Note added</string>
+    <string name="note_deleted">Note deleted</string>
+    <string name="undo">Undo</string>
+
+    <string name="app_db_name">notes_database</string>
+</resources>
