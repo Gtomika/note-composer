@@ -3,10 +3,10 @@ package com.example.composetest
 import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.*
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.composetest.room.Note
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -54,7 +54,15 @@ class NotesViewModel @Inject constructor(
         }
     }
 
-    fun isLoading() : Boolean {
-        return loading
+    fun notesStatus() : NotesStatus {
+        return when {
+            loading -> NotesStatus.LOADING
+            notes.value.isNotEmpty() -> NotesStatus.NOT_EMPTY
+            else -> NotesStatus.EMPTY
+        }
     }
+}
+
+enum class NotesStatus {
+    NOT_EMPTY, EMPTY, LOADING
 }
